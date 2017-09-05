@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>DataPipe 3000</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'polls/css/bootstrap.min.css' %}" type = "text/css"/>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+	<script type="text/javascript">
+		function httpRequest(method, url, callback, data){ //method = "GET" or "POST"
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() { 
+				if (xhr.readyState == 4 && xhr.status == 200)
+				    callback(xhr.responseText);
+			}
+			xhr.open(method, url, true); // true for asynchronous 
+			xhr.send(data);
+		}
+
+		window.onload = function(){
+			var button = document.getElementById("submitButton");
+			button.onclick = function(e){
+				var elements = document.getElementById("myForm").elements;
+				var obj ={};
+		    	for(var i = 0 ; i < elements.length ; i++){
+		    		obj[elements[i].id] = elements[i].value;
+				}
+				
+				httpRequest("POST", "/submission", function(){}, JSON.stringify(obj));
+			};
+		};
+
+	</script>
+</head>
+
+<body class="body" style="background-color:#f6f6f6">
+	<div class="container-fluid" style="min-height:95%; ">
+		<div class="row">
+			  <div class="col-sm-2">
+				  <br>
+			  </div>
+			  <div class="col-sm-10">
+				  <br>
+				  <h2>Get the data you need, today!</h2>
+				  <h4><em>A project of Leaf AI, all rights reserved.</em></h4>
+			  </div>
+		</div><hr>
+
+		<div class="row">
+		  <div class="col-sm-2">
+		  <br>
+
+		  <br>
+		   <!-- Great, til you resize. -->
+			<!--<div class="well bs-sidebar affix" id="sidebar" style="background-color:#fff">-->
+			<div class="well bs-sidebar" id="sidebar" style="background-color:#fff">
+			  <ul class="nav nav-pills nav-stacked">
+				<li><a href='/'>Home</a></li>
+				<li><a href='/examples/'>Examples</a></li>
+				<li><a href='/contact/'>Contact</a></li>
+			  </ul>
+			</div> <!--well bs-sidebar affix-->
+		  </div> <!--col-sm-2-->
+		  <div class="col-sm-10">
+		  
+			<div class='container-fluid'>
+			<br><br>
+			   <p><h3>Need an image dataset, but don't know how to get one? No problem. We're here to help.</h3>The revolutionary DataPipe 3000 takes a text-based description of your dataset, scours the web to learn what your dataset needs to look like, then generates the images you need. We then send you the images, with a license that allows you to do whatever you want with them. Try it today!<hr></p>
+			   <form class="col col-lg-4 col-md-4 col-sm-4" id="myForm">
+			      <div class="form-group">
+			         <label for="inputEmail">Email address</label>
+                     <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll email you the data as a .zip within 72 hours.</small>
+			      </div>
+			      
+			      <div class="form-group">
+			         <label for="classOne">Class #1</label>
+                     <input type="text" class="form-control" id="classOne" aria-describedby="classOne" placeholder="Enter your first class">
+                     <small id="classOneHelp" class="form-text text-muted">Enter the name of the class as if you're doing a web search for it.</small>
+			      </div>
+			      <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+			   </form>
+			</div>
+		  </div>
+		</div> 
+	</div>
+	<footer>
+		<div class="container-fluid" style='margin-left:15px'>
+			<p><a href="#" target="blank">Contact</a> | <a href="#" target="blank">LinkedIn</a> | <a href="#" target="blank">Twitter</a> | <a href="#" target="blank">Google+</a></p>
+		</div>
+	</footer>	
+	
+</body>
+
+</html>
