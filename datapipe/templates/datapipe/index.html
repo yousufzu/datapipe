@@ -5,7 +5,7 @@
 	<title>DataPipe 3000</title>
 	<meta charset="utf-8" />
 	{% load staticfiles %}
-	<link rel="stylesheet" href="{% static 'polls/css/bootstrap.min.css' %}" type = "text/css"/>
+	<link rel="stylesheet" href="{% static 'datapipe/css/bootstrap.min.css' %}" type = "text/css"/>
 	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
 	
 	<style type="text/css">
@@ -34,7 +34,7 @@
 		    		obj[elements[i].id] = elements[i].value;
 				}
 				
-				httpRequest("POST", "/datapipe/submission", function(){}, JSON.stringify(obj));
+				httpRequest("POST", "/datapipe/submit", function(){}, JSON.stringify(obj));
 			};
 		};
 

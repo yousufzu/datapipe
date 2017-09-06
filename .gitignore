@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Filesystem byproduct
+*~
+
 # Distribution / packaging
 .Python
 env/
