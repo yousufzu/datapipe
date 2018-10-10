@@ -1,6 +1,6 @@
 # datapipe
 
-This tool is a django application, i.e. the backend code is written in python. So far, it takes in an email address and class description from the user. It scrapes Google Images for pictures belonging to the class, and stores them in a tar on the cloud. In the future, it should train a generative model using this dataset, and then generate new images, to avoid intellectual property issues.
+This tool is a django application, i.e. the backend code is written in python. So far, it takes in an email address and class description from the user. It scrapes Google Images for pictures belonging to the class, and stores them in a tar on the cloud. In the future, it should train a generative model using this dataset, and then generate new images, to avoid intellectual property issues. Generative model code is located in [another repository](https://github.com/yousufzu/datapipe), but would need to be hooked up with this application (and run on a server that has GPUs) in order to work automatically. 
 
 To run: `python3 manage.py runserver`
 
